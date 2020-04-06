@@ -1,4 +1,4 @@
 @extends('admin.index')
-@section('dashboard')
+@section('content')
 <h3>Welcome to admin dashboard</h3>
 @endsection

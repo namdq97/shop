@@ -51,7 +51,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </div>
             </div>
             <!--logo end-->
-            
+
             <div class="top-nav clearfix">
                 <!--search & user info start-->
                 <ul class="nav pull-right top-menu">
@@ -61,14 +61,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <!-- user login dropdown start-->
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <img alt="" src="images/2.png">
-                            <span class="username">John Doe</span>
+                            <img alt="" src="{{asset('backend/images/2.png')}}">
+                            <span class="username">
+                            <?php
+                                $name = Session::get('name');
+                                if ($name) {
+                                    echo  $name ;
+                                } else {
+                                    echo 'User';
+                                }
+                            ?>
+                            </span>
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu extended logout">
                             <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
                             <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
-                            <li><a href="login.html"><i class="fa fa-key"></i> Log Out</a></li>
+                            <li><a href="{{URL::to('/logout')}}"><i class="fa fa-key"></i> Log Out</a></li>
                         </ul>
                     </li>
                     <!-- user login dropdown end -->
@@ -94,11 +103,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <li class="sub-menu">
                             <a href="javascript:;">
                                 <i class="fa fa-book"></i>
-                                <span>Categories</span>
+                                <span>Categories Product</span>
                             </a>
                             <ul class="sub">
-                                <li><a href="typography.html">All</a></li>
-                                <li><a href="glyphicon.html">Add category</a></li>
+                                <li><a href="{{URL::to('admin/all-category-product')}}">All </a></li>
+                                <li><a href="{{URL::to('admin/add-category-product')}}">Add category</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -109,9 +118,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <!--sidebar end-->
         <!--main content start-->
         <section id="main-content">
-           <section class="wrapper">
-            @yield('dashboard')
-           </section>
+            <section class="wrapper">
+                @yield('content')
+            </section>
             <!-- footer -->
             <div class="footer">
                 <div class="wthree-copyright">
@@ -122,13 +131,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </section>
         <!--main content end-->
     </section>
-    <script src="js/bootstrap.js"></script>
-    <script src="js/jquery.dcjqaccordion.2.7.js"></script>
-    <script src="js/scripts.js"></script>
-    <script src="js/jquery.slimscroll.js"></script>
-    <script src="js/jquery.nicescroll.js"></script>
+    <script src="{{ URL::asset('backend/js/bootstrap.js')}}"></script>
+    <script src="{{ URL::asset('backend/js/jquery.dcjqaccordion.2.7.js')}}"></script>
+    <script src="{{ URL::asset('backend/js/scripts.js')}}"></script>
+    <script src="{{ URL::asset('backend/js/jquery.slimscroll.js')}}"></script>
+    <script src="{{ URL::asset('backend/js/jquery.nicescroll.js')}}"></script>
     <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->
-    <script src="js/jquery.scrollTo.js"></script>
+    <script src="{{ URL::asset('backend/js/jquery.scrollTo.js')}}"></script>
     <!-- morris JavaScript -->
     <script>
         $(document).ready(function () {
@@ -188,6 +197,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- calendar -->
     <script type="text/javascript" src="{{ URL::asset('backend/js/monthly.js')}}"></script>
     <script type="text/javascript">
+        // $(".dropdown-toggle").click(function () {
+        //     $(".dropdown-menu").toggle();
+        // });
         $(window).load(function () {
 
             $('#mycalendar').monthly({
