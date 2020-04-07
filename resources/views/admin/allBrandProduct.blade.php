@@ -3,13 +3,13 @@
 <script>
 function myFunction(){
        let param = $("#inputSearch").val();
-       window.location.replace(`http://localhost:8000/admin/search-category-product?name=${param}`);
+       window.location.replace(`http://localhost:8000/admin/search-brand-product?name=${param}`);
 }
 </script>
 <div class="table-agile-info">
     <div class="panel panel-default">
         <div class="panel-heading">
-           List Categories Product
+           List Brands Product
         </div>
         <div class="row w3-res-tb">
             <!-- <div class="col-sm-5 m-b-xs">
@@ -36,7 +36,7 @@ function myFunction(){
             <table class="table table-striped b-t b-light">
                 <thead>
                     <tr>
-                        <th>Name Category</th>
+                        <th>Name Brand</th>
                         <th>Note</th>
                         <th>Date</th>
                         <th></th>
@@ -46,16 +46,16 @@ function myFunction(){
                 <tbody>
                     @foreach($data as $key=>$item)
                     <tr>
-                        <td>{{ $item->category_name }}</td>
+                        <td>{{ $item->brand_name }}</td>
                         <td><span class="text-ellipsis">{{ $item->desc }}</span></td>
                         <td><span class="text-ellipsis">{{ $item->created_at }}</span></td>
                         <td>
-                            <a href="{{URL::to('/admin/update-category-product')}}?id=@php echo $item->id @endphp" class="active" ui-toggle-class="">
+                            <a href="{{URL::to('/admin/update-brand-product')}}?id=@php echo $item->id @endphp" class="active" ui-toggle-class="">
                                 <i class="fa fa-pencil text-success text-active"></i>
                             </a>
                         </td>
                         <td>
-                            <a onclick="return confirm('Do you want to delete?')" href="{{URL::to('admin/del-category/')}}@php echo '/'.$item->id @endphp" class="active" ui-toggle-class="">    
+                            <a onclick="return confirm('Do you want to delete?')" href="{{URL::to('admin/del-brand/')}}@php echo '/'.$item->id @endphp" class="active" ui-toggle-class="">    
                                 <i class="fa fa-times text-danger text"></i>
                             </a>
                         </td>

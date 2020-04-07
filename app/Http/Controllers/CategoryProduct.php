@@ -36,7 +36,7 @@ class CategoryProduct extends Controller
         $name = $req->name;
         $desc = $req->desc;
         $result = DB::table('tbl_category_product')->insert(
-            ['name' => $name, 'desc' => $desc]
+            ['category_name' => $name, 'desc' => $desc]
         );
         if ($result) {
             return Redirect::to('/admin/all-category-product');
@@ -49,7 +49,12 @@ class CategoryProduct extends Controller
         $desc = $req->desc;
         $result = DB::table('tbl_category_product')
             ->where('id', $id)
-            ->update(['name' => $name, 'desc' => $desc]);
+            ->update(['category_name' => $name, 'desc' => $desc]);
+            return Redirect::to('/admin/all-category-product');
+    }
+
+    public function delete(Request $req, $id) {
+        $result = DB::table('tbl_category_product')->where('id', $id)->delete();
         if ($result) {
             return Redirect::to('/admin/all-category-product');
         }

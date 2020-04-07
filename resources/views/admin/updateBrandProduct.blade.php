@@ -4,15 +4,15 @@
     <div class="col-lg-12">
         <section class="panel">
             <header class="panel-heading">
-                Update Product Category
+                Update Brand Category
             </header>
             <div class="panel-body">
                 <div class="position-center">
                     <form role="form" method="post" action="{{URL::to('admin/update-brand/')}}@php echo '/'.$_GET['id'] @endphp">
                         {{csrf_field()}}
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Name Category</label>
-                            <input required type="text" value="{{$data->category_name}}" class="form-control" id="exampleInputEmail1" placeholder="Enter name" name="name">
+                            <label for="exampleInputEmail1">Name Brand</label>
+                            <input required type="text" value="{{$data->brand_name}}" class="form-control" id="exampleInputEmail1" placeholder="Enter name" name="name">
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1">Description</label>

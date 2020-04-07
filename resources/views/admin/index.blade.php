@@ -110,6 +110,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <li><a href="{{URL::to('admin/add-category-product')}}">Add category</a></li>
                             </ul>
                         </li>
+
+                        <li class="sub-menu">
+                            <a href="javascript:;">
+                            <i class="fa fa-font-awesome" aria-hidden="true"></i>
+                                <span>Brand Product</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a href="{{URL::to('admin/all-brand-product')}}">All </a></li>
+                                <li><a href="{{URL::to('admin/add-brand-product')}}">Add brand</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="sub-menu">
+                            <a href="javascript:;">
+                            <i class="fa fa-font-awesome" aria-hidden="true"></i>
+                                <span> Product</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a href="{{URL::to('admin/all-product')}}">All </a></li>
+                                <li><a href="{{URL::to('admin/add-product')}}">Add product</a></li>
+                            </ul>
+                        </li>
+
                     </ul>
                 </div>
                 <!-- sidebar menu end-->
