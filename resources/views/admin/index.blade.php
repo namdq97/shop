@@ -133,6 +133,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </ul>
                         </li>
 
+                        <li class="sub-menu">
+                            <a href="javascript:;">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                                <span> User</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a href="{{URL::to('admin/all-user')}}">All </a></li>
+                                <li><a href="{{URL::to('admin/add-user')}}">Add user</a></li>
+                            </ul>
+                        </li>
+
                     </ul>
                 </div>
                 <!-- sidebar menu end-->

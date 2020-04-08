@@ -52,5 +52,15 @@ Route::post('/admin/submit-product', 'Product@submit');
 Route::post('/admin/update-product/{id}', 'Product@submitUpdate');
 Route::get('/admin/del-product/{id}', 'Product@delete');
 
+//user
+Route::get('/admin/all-user', 'User@all');
+Route::get('/admin/search-user', 'User@listBySearch');
+Route::get('/admin/add-user', 'User@add');
+Route::get('/admin/update-user', 'User@update');
+Route::post('/admin/submit-user', 'User@submit');
+Route::post('/admin/update-user/{id}', 'User@submitUpdate');
+Route::get('/admin/del-user/{id}', 'User@delete');
+
+
 
 
