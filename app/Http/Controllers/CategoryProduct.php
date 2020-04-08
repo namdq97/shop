@@ -20,7 +20,7 @@ class CategoryProduct extends Controller
     }
 
     public function listBySearch() {
-        $data = DB::table('tbl_category_product')->where('name','LIKE', "%{$_GET['name']}%")->get();
+        $data = DB::table('tbl_category_product')->where('category_name','LIKE', "%{$_GET['name']}%")->get();
         return view('admin.allCategoryProduct', ['data' => $data]);
     }
 

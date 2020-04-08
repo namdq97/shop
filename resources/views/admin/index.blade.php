@@ -124,7 +124,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                         <li class="sub-menu">
                             <a href="javascript:;">
-                            <i class="fa fa-font-awesome" aria-hidden="true"></i>
+                            <i class="fa fa-cutlery" aria-hidden="true"></i>
                                 <span> Product</span>
                             </a>
                             <ul class="sub">

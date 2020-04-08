@@ -52,12 +52,12 @@ function myFunction(){
                         <td><span class="text-ellipsis">{{ $item->brand_name }}</span></td>
                         <td><image style="width: 50px" src="/backend/images/{{($item->image)}}" /></td>
                         <td>
-                            <a href="{{URL::to('/admin/update-brand-product')}}?id=@php echo $item->id @endphp" class="active" ui-toggle-class="">
+                            <a href="{{URL::to('/admin/update-product')}}?id=@php echo $item->id @endphp" class="active" ui-toggle-class="">
                                 <i class="fa fa-pencil text-success text-active"></i>
                             </a>
                         </td>
                         <td>
-                            <a onclick="return confirm('Do you want to delete?')" href="{{URL::to('admin/del-brand/')}}@php echo '/'.$item->id @endphp" class="active" ui-toggle-class="">    
+                            <a onclick="return confirm('Do you want to delete?')" href="{{URL::to('admin/del-product/')}}@php echo '/'.$item->id @endphp" class="active" ui-toggle-class="">    
                                 <i class="fa fa-times text-danger text"></i>
                             </a>
                         </td>

@@ -20,7 +20,7 @@ class BrandProduct extends Controller
     }
 
     public function listBySearch() {
-        $data = DB::table('tbl_brand')->where('name','LIKE', "%{$_GET['name']}%")->get();
+        $data = DB::table('tbl_brand')->where('brand_name','LIKE', "%{$_GET['name']}%")->get();
         return view('admin.allBrandProduct', ['data' => $data]);
     }
 
