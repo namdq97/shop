@@ -8,7 +8,7 @@
             </header>
             <div class="panel-body">
                 <div class="position-center">
-                    <form role="form" method="post" action="{{URL::to('admin/update-brand/')}}@php echo '/'.$_GET['id'] @endphp">
+                    <form role="form" method="post" action="{{URL::to('admin/update-category/')}}@php echo '/'.$_GET['id'] @endphp">
                         {{csrf_field()}}
                         <div class="form-group">
                             <label for="exampleInputEmail1">Name Category</label>

@@ -15,10 +15,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'Home@index');
 Route::get('/home', 'Home@index');
 
-//admin
+//auth
 Route::get('/admin', 'Admin@index');
 Route::get('/admin/dashboard', 'Admin@showDashboard');
 Route::get('/logout', 'Admin@logout');
+Route::get('/admin/profile', 'Admin@profile');
+Route::get('/admin/change-password', 'Admin@changePassword');
+Route::post('/admin/update-profile', 'Admin@updateProfile');
+Route::post('/admin/update-password', 'Admin@updatePassword');
 Route::post('/admin-dashboard', 'Admin@login');
 
 //product category
