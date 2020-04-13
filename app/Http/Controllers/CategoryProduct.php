@@ -59,4 +59,18 @@ class CategoryProduct extends Controller
             return Redirect::to('/admin/all-category-product');
         }
     }
+
+    //website
+    public function show_list_product(Request $req){
+        $cate = DB::table('tbl_category_product')->get();
+        $brand = DB::table('tbl_brand')->get();
+        if(isset($_GET['category'])) {
+            $cate_id = $_GET['category'];
+            $all = DB::table('tbl_product')->orderby('id', 'desc')->where('category_id', $cate_id)->get();
+        } else {
+            $brand_id = $_GET['brand'];
+            $all = DB::table('tbl_product')->orderby('id', 'desc')->where('brand_id', $brand_id)->get();
+        }
+        return view('website.listProduct', ['cate' => $cate, 'brand' => $brand, 'all' => $all]);
+    }
 }

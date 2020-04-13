@@ -143,4 +143,13 @@ class Product extends Controller
             return Redirect::to('/admin/all-product');
         }
     }
+
+    public function detailProduct(Request $req, $id){
+        $data = DB::table('tbl_product')->where('id', $id)->first();
+        $brand = DB::table('tbl_brand')->where('id', $data->brand_id)->first();
+        $brand_name = $brand->brand_name;
+        $cate = DB::table('tbl_category_product')->get();
+        $brand = DB::table('tbl_brand')->get();
+        return view('website.detailProduct', ['cate' => $cate, 'brand' => $brand, 'data' => $data, 'brand_name' => $brand_name]);
+    }
 }

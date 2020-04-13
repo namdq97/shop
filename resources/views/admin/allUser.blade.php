@@ -25,7 +25,7 @@ function myFunction(){
             </div> -->
             <div class="col-sm-3">
                 <div class="input-group">
-                    <input value="{{ isset($_GET['name']) ? $_GET['name'] : ' ' }}" type="text" class="input-sm form-control" id="inputSearch" placeholder="Search">
+                    <input value="{{ isset($_GET['name']) ? $_GET['name'] : '' }}" type="text" class="input-sm form-control" id="inputSearch" placeholder="Search">
                     <span class="input-group-btn">
                         <button class="btn btn-sm btn-default" onclick="myFunction()" type="button">Go!</button>
                     </span>

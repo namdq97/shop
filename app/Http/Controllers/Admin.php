@@ -12,9 +12,16 @@ session_start();
 class Admin extends Controller
 {
     //
+
+
     public function index()
     {
-        return view('admin.login');
+        $id = Session::get('id');
+        if($id) {
+            return view('admin.dashboard');
+        } else {
+            return view('admin.login');
+        }
     }
 
     public function showDashboard()

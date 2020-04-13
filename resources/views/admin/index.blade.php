@@ -132,7 +132,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <li><a href="{{URL::to('admin/add-product')}}">Add product</a></li>
                             </ul>
                         </li>
-
+                         @if(Session::get('level') === 1)       
                         <li class="sub-menu">
                             <a href="javascript:;">
                             <i class="fa fa-user" aria-hidden="true"></i>
@@ -143,7 +143,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <li><a href="{{URL::to('admin/add-user')}}">Add user</a></li>
                             </ul>
                         </li>
-
+                        @endif 
+                        <li class="sub-menu">
+                            <a href="javascript:;">
+                            <i class="fa fa-newspaper-o" aria-hidden="true"></i>
+                                <span> News</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a href="{{URL::to('admin/all-news')}}">All </a></li>
+                                <li><a href="{{URL::to('admin/add-news')}}">Add news</a></li>
+                            </ul>
+                        </li>       
                     </ul>
                 </div>
                 <!-- sidebar menu end-->
