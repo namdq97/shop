@@ -55,42 +55,19 @@
 		<div class="header-middle"><!--header-middle-->
 			<div class="container">
 				<div class="row">
-					<!-- <div class="col-sm-4">
-						<div class="logo pull-left">
-							<a href="index.html"><img src="images/home/logo.png" alt="" /></a>
-						</div>
-						<div class="btn-group pull-right">
-							<div class="btn-group">
-								<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-									USA
-									<span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li><a href="#">Canada</a></li>
-									<li><a href="#">UK</a></li>
-								</ul>
-							</div>
-							
-							<div class="btn-group">
-								<button type="button" class="btn btn-default dropdown-toggle usa" data-toggle="dropdown">
-									DOLLAR
-									<span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu">
-									<li><a href="#">Canadian Dollar</a></li>
-									<li><a href="#">Pound</a></li>
-								</ul>
-							</div>
-						</div>
-					</div> -->
-					<div class="col-sm-8">
+					<div class="col-sm-12">
+						@if (Auth::check()) 
+						<h5 style="text-align: right">Xin chào {{Auth::user()->name}}</h5>
+						@endif
 						<div class="shop-menu pull-right">
 							<ul class="nav navbar-nav">
-								<li><a href="#"><i class="fa fa-user"></i> Tài khoản</a></li>
-								<!-- <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li> -->
-								<!-- <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li> -->
-								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
-								<li><a href="login.html"><i class="fa fa-lock"></i> Đăng nhập</a></li>
+								@if (Auth::check()) 
+									<li><a href="{{URL::to('profile')}}"><i class="fa fa-user"></i> Tài khoản</a></li>
+									<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
+									<li><a href="{{URL::to('log-out')}}"><i class="fa fa-sign-in"></i> Đăng xuất</a></li>
+								@else	
+									<li><a href="{{URL::to('login')}}"><i class="fa fa-lock"></i> Đăng nhập</a></li>
+								@endif	
 							</ul>
 						</div>
 					</div>

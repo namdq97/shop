@@ -1,5 +1,6 @@
 <?php
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Redirect;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +20,22 @@ Route::get('/home', 'Home@index');
 Route::get('/danh-sach-san-pham', 'CategoryProduct@show_list_product');
 Route::get('/chi-tiet-san-pham/{id}', 'Product@detailProduct');
 
+//auth
+Route::get('/login', function(){
+    return view('auth.login');
+});
+
+Route::get('/log-out', function(){
+    Auth::logout();
+    return Redirect::to('/');
+});
+
+Route::get('/profile', 'Profile@updateProfile');
+Route::post('/submit-profile', 'Profile@submitUpdateProfile');
+Route::get('/change-pass', 'Profile@updatePassword');
+Route::post('/submit-password', 'Profile@submitUpdatePassword');
+
+//Admin
 //auth
 Route::get('/admin', 'Admin@index');
 Route::get('/admin/dashboard', 'Admin@showDashboard');
@@ -79,3 +96,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'adminLogin'], function () {
     Route::post('/update-password', 'Admin@updatePassword');
 
 });
+
+Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');
