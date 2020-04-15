@@ -19,7 +19,12 @@ Route::get('/home', 'Home@index');
 //product
 Route::get('/danh-sach-san-pham', 'CategoryProduct@show_list_product');
 Route::get('/chi-tiet-san-pham/{id}', 'Product@detailProduct');
-
+Route::get('/cart/{id}', 'Product@addToCart');
+Route::get('/show-cart', 'Product@goToCart');
+Route::get('/delete/{id}', 'Product@deleteItem');
+Route::get('/add/{id}/{qty}', 'Product@addQty');
+Route::get('/minus/{id}/{qty}', 'Product@minusQty');
+Route::post('/checkout', 'Product@checkout');
 //auth
 Route::get('/login', function(){
     return view('auth.login');

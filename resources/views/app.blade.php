@@ -63,13 +63,20 @@
 							<ul class="nav navbar-nav">
 								@if (Auth::check()) 
 									<li><a href="{{URL::to('profile')}}"><i class="fa fa-user"></i> Tài khoản</a></li>
-									<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
+									<li><a href="{{URL::to('show-cart')}}"><i class="fa fa-shopping-cart"></i> Giỏ hàng</a></li>
 									<li><a href="{{URL::to('log-out')}}"><i class="fa fa-sign-in"></i> Đăng xuất</a></li>
 								@else	
 									<li><a href="{{URL::to('login')}}"><i class="fa fa-lock"></i> Đăng nhập</a></li>
 								@endif	
 							</ul>
 						</div>
+						<?php 
+							$success = Session::get('success');
+							if($success){
+								echo '<div class="alert alert-primary" role="alert">'.$success.'</div>';
+								$success = Session::put('success', null);
+							}
+						?>
 					</div>
 				</div>
 			</div>
@@ -90,23 +97,8 @@
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
 								<li><a href="{{URL::to('')}}" class="active">Trang chủ</a></li>
-								<!-- <li class="dropdown"><a href="#">Sản phẩm<i class="fa fa-angle-down"></i></a>
-                                    <ul role="menu" class="sub-menu">
-                                        <li><a href="shop.html">Products</a></li>
-										<li><a href="product-details.html">Product Details</a></li> 
-										<li><a href="checkout.html">Checkout</a></li> 
-										<li><a href="cart.html">Cart</a></li> 
-										<li><a href="login.html">Login</a></li> 
-                                    </ul>
-                                </li>  -->
-								<!-- <li class="dropdown"><a href="#">Tin tức<i class="fa fa-angle-down"></i></a>
-                                    <ul role="menu" class="sub-menu">
-                                        <li><a href="blog.html">Blog List</a></li>
-										<li><a href="blog-single.html">Blog Single</a></li>
-                                    </ul>
-                                </li>  -->
 								<li><a href="404.html">Tin tức</a></li>
-								<li><a href="404.html">Giỏ hàng</a></li>
+								<li><a href="{{URL::to('show-cart')}}"> Giỏ hàng</a></li>
 								<li><a href="contact-us.html">Liên hệ</a></li>
 							</ul>
 						</div>

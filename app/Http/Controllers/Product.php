@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Auth;
+use Cart;
+use Session;
 
 class Product extends Controller
 {
@@ -151,5 +154,47 @@ class Product extends Controller
         $cate = DB::table('tbl_category_product')->get();
         $brand = DB::table('tbl_brand')->get();
         return view('website.detailProduct', ['cate' => $cate, 'brand' => $brand, 'data' => $data, 'brand_name' => $brand_name]);
+    }
+
+    public function addToCart(Request $req, $id){
+        $product = DB::table('tbl_product')->where('id', $id)->first();
+        $data['id'] = $product->id;
+        $data['qty'] = 1;
+        $data['weight'] = $product->size;
+        $data['name'] = $product->product_name;
+        $data['price'] = $product->price;
+        $data['options']['image'] = $product->image;
+        Cart::add($data);
+        return Redirect::to('/show-cart');
+    }
+
+    public function goToCart(){
+        return view('website.cart');
+    }
+
+    public function deleteItem(Request $req, $id){
+        Cart::remove($id);
+        return Redirect::to('/show-cart');
+    }
+
+    public function addQty(Request $req, $id, $qty){
+        Cart::update($id, $qty + 1);
+        return Redirect::to('/show-cart');
+    }
+
+    public function minusQty(Request $req, $id, $qty){
+        Cart::update($id, $qty - 1);
+        return Redirect::to('/show-cart');
+    }
+
+    public function checkout(Request $req){
+        foreach (Cart::content() as $key => $value) {
+            DB::table('tbl_bill')->insert(
+                ['name' => $req->name, 'phone' => $req->phone, 'address' => $req->address, 'note' => $req->note, 'count' => $value->qty, 'user_id' => Auth::id(), 'product_id' => $value->id]
+            );
+        }
+        Session::put('success', 'Đặt hàng thành công. Xin cảm ơn!');
+        Cart::destroy();
+        return Redirect::to('/home');
     }
 }

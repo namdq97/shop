@@ -1293,6 +1293,7 @@ h2.title {
   font-size: 15px;
   margin-bottom: 10px;
   margin-left: 20px;
+  margin-top: 5px;
 }
 
 
@@ -1652,7 +1653,7 @@ h2.title {
   font-size: 16px;
   text-align: center;
   font-family: 'Roboto',sans-serif;
-  
+  width: 50px;
 }
 
 
@@ -1788,10 +1789,15 @@ h2.title {
 }
 
 .check_out {
-  margin-left: 20px
+  margin-left: 40px
 }
 
-
+.alert-primary {
+  color: #004085;
+  background-color: #cce5ff;
+  border-color: #b8daff;
+  margin-top: 50px;
+}
 
 /*************************
 *******checkout CSS******

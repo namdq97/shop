@@ -13,12 +13,11 @@
                 <h2>{{$data->product_name}}</h2>
                 <span>
                     <span>{{number_format($data->price)}} VND</span>
-                    <label>Số lượng:</label>
-                    <input min="0" type="number" value="1" />
+                    <a href="{{URL::to('/cart/'.$data->id)}}">
                     <button type="button" class="btn btn-fefault cart">
                         <i class="fa fa-shopping-cart"></i>
                         Add to cart
-                    </button>
+                    </button></a>
                 </span>
                 <p><b>Tình trạng:</b> {{$data->status === 0 ? 'Hết hàng' : 'Còn hàng'}}</p>
                 <p><b>Thương hiệu:</b> {{$brand_name}}</p>

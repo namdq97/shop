@@ -28,3 +28,7 @@ $(document).ready(function(){
 		});
 	});
 });
+
+$(".cart_quantity_up").click(function(){
+	alert("The paragraph was clicked.");
+  });
