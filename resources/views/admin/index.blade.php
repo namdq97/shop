@@ -132,6 +132,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <li><a href="{{URL::to('admin/add-product')}}">Add product</a></li>
                             </ul>
                         </li>
+                        <li class="sub-menu">
+                            <a href="javascript:;">
+                            <i class="fa fa-cutlery" aria-hidden="true"></i>
+                                <span> Bill</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a href="{{URL::to('admin/all-bill')}}">All </a></li>
+                            </ul>
+                        </li>
                          @if(Session::get('level') === 1)       
                         <li class="sub-menu">
                             <a href="javascript:;">

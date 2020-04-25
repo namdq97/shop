@@ -25,6 +25,7 @@ Route::get('/delete/{id}', 'Product@deleteItem');
 Route::get('/add/{id}/{qty}', 'Product@addQty');
 Route::get('/minus/{id}/{qty}', 'Product@minusQty');
 Route::post('/checkout', 'Product@checkout');
+Route::get('/my-bill', 'Bill@detail');
 //auth
 Route::get('/login', function(){
     return view('auth.login');
@@ -93,6 +94,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'adminLogin'], function () {
     Route::post('/submit-news', 'News@submit');
     Route::post('/update-news/{id}', 'News@submitUpdate');
     Route::get('/del-news/{id}', 'News@delete');
+
+    //bill
+    Route::get('/all-bill', 'Bill@all');
+    // Route::get('/search-bill', 'Bill@listBySearch');
+    Route::get('/del-bill/{id}', 'Bill@delete');
+    Route::get('/update-bill', 'Bill@update');
+
 
     //profile
     Route::get('/profile', 'Admin@profile');

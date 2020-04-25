@@ -99,6 +99,9 @@
 								<li><a href="{{URL::to('')}}" class="active">Trang chủ</a></li>
 								<li><a href="404.html">Tin tức</a></li>
 								<li><a href="{{URL::to('show-cart')}}"> Giỏ hàng</a></li>
+								@if (Auth::check()) 
+								<li><a href="{{URL::to('my-bill')}}"> Đơn hàng của tôi</a></li>
+								@endif
 								<li><a href="contact-us.html">Liên hệ</a></li>
 							</ul>
 						</div>
