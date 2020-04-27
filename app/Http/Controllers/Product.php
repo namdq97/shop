@@ -149,11 +149,13 @@ class Product extends Controller
 
     public function detailProduct(Request $req, $id){
         $data = DB::table('tbl_product')->where('id', $id)->first();
+        $review = DB::table('tbl_review')->leftJoin('users', 'tbl_review.user_id', '=', 'users.id')
+        ->select('tbl_review.*', 'users.name')->where('product_id', $id)->get();
         $brand = DB::table('tbl_brand')->where('id', $data->brand_id)->first();
         $brand_name = $brand->brand_name;
         $cate = DB::table('tbl_category_product')->get();
         $brand = DB::table('tbl_brand')->get();
-        return view('website.detailProduct', ['cate' => $cate, 'brand' => $brand, 'data' => $data, 'brand_name' => $brand_name]);
+        return view('website.detailProduct', ['cate' => $cate, 'brand' => $brand, 'data' => $data, 'review' => $review, 'brand_name' => $brand_name]);
     }
 
     public function addToCart(Request $req, $id){
@@ -197,4 +199,5 @@ class Product extends Controller
         Cart::destroy();
         return Redirect::to('/home');
     }
+
 }

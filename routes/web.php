@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Redirect;
 Route::get('/', 'Home@index');
 Route::get('/home', 'Home@index');
 
+//review
+Route::post('/submit-review/{id}', 'Review@submit');
+
+
 //product
 Route::get('/danh-sach-san-pham', 'CategoryProduct@show_list_product');
 Route::get('/chi-tiet-san-pham/{id}', 'Product@detailProduct');
@@ -85,6 +89,24 @@ Route::group(['prefix' => 'admin', 'middleware' => 'adminLogin'], function () {
     Route::post('/submit-user', 'User@submit');
     Route::post('/update-user/{id}', 'User@submitUpdate');
     Route::get('/del-user/{id}', 'User@delete');
+
+     //user
+     Route::get('/all-customer', 'Customer@all');
+     Route::get('/search-customer', 'Customer@listBySearch');
+    //  Route::get('/add-customer', 'Customer@add');
+    //  Route::get('/update-customer', 'Customer@update');
+    //  Route::post('/submit-customer', 'Customer@submit');
+    //  Route::post('/update-customer/{id}', 'Customer@submitUpdate');
+     Route::get('/del-customer/{id}', 'Customer@delete');
+
+    //user
+     Route::get('/all-review', 'Review@all');
+    //  Route::get('/search-review', 'Review@listBySearch');
+    //  Route::get('/add-review', 'Review@add');
+    //  Route::get('/update-review', 'Review@update');
+    //  Route::post('/submit-review', 'Review@submit');
+    //  Route::post('/update-review/{id}', 'Review@submitUpdate');
+     Route::get('/del-review/{id}', 'Review@delete');
 
     //news
     Route::get('/all-news', 'News@all');

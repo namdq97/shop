@@ -1,5 +1,6 @@
 @extends('app')
 @section('content')
+
     <div class="product-details">
         <!--product-details-->
         <div class="col-sm-5">
@@ -43,28 +44,26 @@
 
             <div class="tab-pane fade in" id="reviews">
                 <div class="col-sm-12">
+                @foreach($review as $key => $value)
                     <ul>
-                        <li><a href=""><i class="fa fa-user"></i>EUGEN</a></li>
-                        <li><a href=""><i class="fa fa-clock-o"></i>12:41 PM</a></li>
-                        <li><a href=""><i class="fa fa-calendar-o"></i>31 DEC 2014</a></li>
+                        <li><a href=""><i class="fa fa-user"></i>{{$value->name}}</a></li>
+                        <li><a href=""><i class="fa fa-clock-o"></i>{{$value->created_at}}</a></li>
                     </ul>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                        nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate
-                        velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                    <p><b>Write Your Review</b></p>
+                    <p>{{$value->content}}</p>
+                @endforeach    
 
-                    <form action="#">
-                        <span>
-                            <input type="text" placeholder="Your Name" />
-                            <input type="email" placeholder="Email Address" />
-                        </span>
-                        <textarea name=""></textarea>
-                        <b>Rating: </b> <img src="images/product-details/rating.png" alt="" />
-                        <button type="button" class="btn btn-default pull-right">
+                    @if (Auth::check()) 
+
+                    <p><b>Đánh giá của bạn</b></p>
+
+                    <form method="post" action="{{URL::to('submit-review/'.$data->id)}}">
+                    {{csrf_field()}}
+                        <textarea name="content"></textarea>
+                        <button type="submit" class="btn btn-default pull-right">
                             Submit
                         </button>
                     </form>
+                    @endif
                 </div>
             </div>
 
