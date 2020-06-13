@@ -15,9 +15,15 @@ if(isset($_GET['category'])){
     $url_2 = '/danh-sach-san-pham/?brand='.$_GET['brand'].'&sort=desc'   ;
 }
 @endphp
+
 <div class="features_items">
+    <div style="display: flex; margin-bottom: 20px; justify-content: flex-end;">
+        <input value="{{ isset($_GET['search']) ? $_GET['search'] : '' }}" style="height: 35px; background-color: whitesmoke; border: none; width: 50%; padding-left: 10px;" id="inputSearch" type="text" placeholder="Search" />
+        <button type="submit" onclick="myFunction()" class="btn btn-warning">Search</button>
+    </div>
     <!--features_items-->
     <h2 class="title text-center">Dach sách sản phẩm</h2>
+    
     <div class="dropdown" style="text-align: right;margin-bottom: 15px;">
         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Sắp xếp<span class="caret" style="margin-left: 10px;"></span></button>
         <ul class="dropdown-menu" style="right: 0;left: unset;">
@@ -50,3 +56,18 @@ if(isset($_GET['category'])){
     @endforeach
 </div>
 @endsection
+
+<script>
+    function myFunction() {
+        let param = $("#inputSearch").val();
+        var url_string = window.location.href
+        var url = new URL(url_string);
+        var cate = url.searchParams.get("category");
+        var brand = url.searchParams.get("brand");
+        if(cate) {
+            window.location.replace(`http://localhost:8000/danh-sach-san-pham?category=${cate}&search=${param}`);
+        } else if(brand) {
+            window.location.replace(`http://localhost:8000/danh-sach-san-pham?brand=${brand}&search=${param}`);
+        }
+    }
+</script>
