@@ -86,4 +86,22 @@ class News extends Controller
             return Redirect::to('/admin/all-news');
         }
     }
+
+    public function allNews()
+    {
+        $data = DB::table('tbl_news')->get();
+        $cate = DB::table('tbl_category_product')->get();
+        $brand = DB::table('tbl_brand')->get();
+        return view('website.listNews', ['cate' => $cate, 'brand' => $brand, 'data' => $data]);
+        // return view('website.allNews', ['data' => $data]);
+    }
+
+    public function detailNews(Request $req, $id)
+    {   
+        $brand = DB::table('tbl_brand')->get();
+        $cate = DB::table('tbl_category_product')->get();
+        $data = DB::table('tbl_news')->where('id', $id)->first();
+        return view('website.detailNews', ['cate' => $cate, 'brand' => $brand, 'data' => $data]);
+    }
+
 }

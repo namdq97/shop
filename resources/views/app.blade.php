@@ -110,7 +110,7 @@
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
 								<li><a href="{{URL::to('')}}" class="active">Trang chủ</a></li>
-								<li><a href="404.html">Tin tức</a></li>
+								<li><a href="{{URL::to('tin-tuc')}}">Tin tức</a></li>
 								@if (Auth::check())
 								<li><a href="{{URL::to('my-bill')}}"> Đơn hàng của tôi</a></li>
 								<li><a href="{{URL::to('show-cart')}}"> Giỏ hàng</a></li>

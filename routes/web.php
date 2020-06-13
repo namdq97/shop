@@ -45,6 +45,10 @@ Route::post('/submit-profile', 'Profile@submitUpdateProfile');
 Route::get('/change-pass', 'Profile@updatePassword');
 Route::post('/submit-password', 'Profile@submitUpdatePassword');
 
+//News
+Route::get('/tin-tuc', 'News@allNews');
+Route::get('/chi-tiet-tin-tuc/{id}', 'News@detailNews');
+
 //Admin
 //auth
 Route::get('/admin', 'Admin@index');
