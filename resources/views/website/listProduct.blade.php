@@ -1,8 +1,30 @@
 @extends('app')
 @section('content')
+@php
+$url_1 = '';
+if(isset($_GET['category'])){
+    $url_1 = '/danh-sach-san-pham/?category='.$_GET['category'].'&sort=asc'  ;
+} else {
+    $url_1 = '/danh-sach-san-pham/?brand='.$_GET['brand'].'&sort=asc'   ;
+}
+
+$url_2 = '';
+if(isset($_GET['category'])){
+    $url_2 = '/danh-sach-san-pham/?category='.$_GET['category'].'&sort=desc'  ;
+} else {
+    $url_2 = '/danh-sach-san-pham/?brand='.$_GET['brand'].'&sort=desc'   ;
+}
+@endphp
 <div class="features_items">
     <!--features_items-->
     <h2 class="title text-center">Dach sách sản phẩm</h2>
+    <div class="dropdown" style="text-align: right;margin-bottom: 15px;">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Sắp xếp<span class="caret" style="margin-left: 10px;"></span></button>
+        <ul class="dropdown-menu" style="right: 0;left: unset;">
+          <li><a href="{{URL::to($url_1)}}" style="text-align: center;">Giá thấp -> cao</a></li>
+          <li><a href="{{URL::to($url_2)}}" style="text-align: center;">Giá cao -> thấp</a></li>
+        </ul>
+      </div>
     @foreach($all as $key=>$item)
     <div class="col-sm-4">
         <div class="product-image-wrapper">
@@ -16,8 +38,10 @@
                 <div class="product-overlay">
                     <div class="overlay-content">
                         <h2>{{number_format($item->price)}} VND</h2>
-                        <p> <a style="color: white" href="{{URL::to('/chi-tiet-san-pham/'.$item->id)}}">{{$item->product_name}}</a></p>
-                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                        <p> <a style="color: white"
+                                href="{{URL::to('/chi-tiet-san-pham/'.$item->id)}}">{{$item->product_name}}</a></p>
+                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to
+                            cart</a>
                     </div>
                 </div>
             </div>

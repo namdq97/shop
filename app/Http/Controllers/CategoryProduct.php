@@ -19,8 +19,9 @@ class CategoryProduct extends Controller
         return view('admin.addCategoryProduct');
     }
 
-    public function listBySearch() {
-        $data = DB::table('tbl_category_product')->where('category_name','LIKE', "%{$_GET['name']}%")->get();
+    public function listBySearch()
+    {
+        $data = DB::table('tbl_category_product')->where('category_name', 'LIKE', "%{$_GET['name']}%")->get();
         return view('admin.allCategoryProduct', ['data' => $data]);
     }
 
@@ -50,10 +51,11 @@ class CategoryProduct extends Controller
         $result = DB::table('tbl_category_product')
             ->where('id', $id)
             ->update(['category_name' => $name, 'desc' => $desc]);
-            return Redirect::to('/admin/all-category-product');
+        return Redirect::to('/admin/all-category-product');
     }
 
-    public function delete(Request $req, $id) {
+    public function delete(Request $req, $id)
+    {
         $result = DB::table('tbl_category_product')->where('id', $id)->delete();
         if ($result) {
             return Redirect::to('/admin/all-category-product');
@@ -61,15 +63,27 @@ class CategoryProduct extends Controller
     }
 
     //website
-    public function show_list_product(Request $req){
+    public function show_list_product(Request $req)
+    {
         $cate = DB::table('tbl_category_product')->get();
         $brand = DB::table('tbl_brand')->get();
-        if(isset($_GET['category'])) {
+        if (isset($_GET['category'])) {
             $cate_id = $_GET['category'];
-            $all = DB::table('tbl_product')->orderby('id', 'desc')->where('category_id', $cate_id)->get();
+            if (!isset($_GET['sort'])) {
+                $all = DB::table('tbl_product')->orderby('id', 'desc')->where('category_id', $cate_id)->get();
+            } else {
+                $sort = $_GET['sort'];
+                $all = DB::table('tbl_product')->orderby('price', $sort)->where('category_id', $cate_id)->get();
+            }
+
         } else {
             $brand_id = $_GET['brand'];
-            $all = DB::table('tbl_product')->orderby('id', 'desc')->where('brand_id', $brand_id)->get();
+            if (!isset($_GET['sort'])) {
+                $all = DB::table('tbl_product')->orderby('id', 'desc')->where('brand_id', $brand_id)->get();
+            } else {
+                $sort = $_GET['sort'];
+                $all = DB::table('tbl_product')->orderby('price', $sort)->where('brand_id', $brand_id)->get();
+            }
         }
         return view('website.listProduct', ['cate' => $cate, 'brand' => $brand, 'all' => $all]);
     }

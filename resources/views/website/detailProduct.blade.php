@@ -20,7 +20,7 @@
                         Add to cart
                     </button></a>
                 </span>
-                <p><b>Tình trạng:</b> {{$data->status === 0 ? 'Hết hàng' : 'Còn hàng'}}</p>
+                <p><b class="{{ $data->status === 0 ? 'a' : 'b' }}">Tình trạng:</b> {{$data->status === 0 ? 'Hết hàng' : 'Còn hàng'}}</p>
                 <p><b>Thương hiệu:</b> {{$brand_name}}</p>
                 <a href=""><img src="images/product-details/share.png" class="share img-responsive" alt="" /></a>
             </div>
