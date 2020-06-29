@@ -35,8 +35,10 @@ class BrandProduct extends Controller
     {
         $name = $req->name;
         $desc = $req->desc;
+        $phone = $req->phone;
+        $address = $req->address;
         $result = DB::table('tbl_brand')->insert(
-            ['brand_name' => $name, 'desc' => $desc]
+            ['brand_name' => $name, 'desc' => $desc, 'phone' => $phone, 'address' => $address]
         );
         if ($result) {
             return Redirect::to('/admin/all-brand-product');
@@ -47,9 +49,11 @@ class BrandProduct extends Controller
     {
         $name = $req->name;
         $desc = $req->desc;
+        $phone = $req->phone;
+        $address = $req->address;
         $result = DB::table('tbl_brand')
             ->where('id', $id)
-            ->update(['brand_name' => $name, 'desc' => $desc]);
+            ->update( ['brand_name' => $name, 'desc' => $desc, 'phone' => $phone, 'address' => $address]);
             return Redirect::to('/admin/all-brand-product');
     }
 

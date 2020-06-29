@@ -10,17 +10,17 @@
                 <div class="productinfo text-center">
                     <img src="/backend/images/{{($item->image)}}" alt="" />
                     <h2>{{number_format($item->price)}} VND</h2>
-                    <p>{{$item->product_name}}</p>
-                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                    <p> <a style="color: black" href="{{URL::to('/chi-tiet-san-pham/'.$item->id)}}">{{$item->product_name}}</a></p>
+                    <a href="{{ Auth::check() ? URL::to('/cart/'.$item->id) : URL::to('login') }}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                 </div>
-                <div class="product-overlay">
+                <!-- <div class="product-overlay">
                     <div class="overlay-content">
                         <h2>{{number_format($item->price)}} VND</h2>
                         <p> <a style="color: white" href="{{URL::to('/chi-tiet-san-pham/'.$item->id)}}">{{$item->product_name}}</a></p>
                         <a href="{{URL::to('/cart/'.$item->id)}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to
                             cart</a>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -49,8 +49,7 @@
                         <img src="/backend/images/{{($item->image)}}" alt="" />
                             <h2>{{number_format($item->price)}} VND</h2>
                             <p> <a style="color: black" href="{{URL::to('/chi-tiet-san-pham/'.$item->id)}}">{{$item->product_name}}</a></p>
-                            <a href="{{URL::to('/cart/'.$item->id)}}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to
-                                cart</a>
+                            <a href="{{ Auth::check() ? URL::to('/cart/'.$item->id) : URL::to('login') }}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                         </div>
 
                     </div>

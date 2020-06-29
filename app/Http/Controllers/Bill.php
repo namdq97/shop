@@ -18,6 +18,15 @@ class Bill extends Controller
         return view('admin.allBill', ['data' => $data]);
     }
 
+    public function filter(Request $req)
+    {
+        $start_date = $req->start_date;
+        $end_date = $req->end_date;
+        $data = DB::table('tbl_bill as b') ->leftJoin('tbl_product', 'b.product_id', '=', 'tbl_product.id')
+        ->select('b.*', 'tbl_product.product_name')->whereDate('b.created_at','>=', $start_date)->whereDate('b.created_at','<=', $end_date)->get();
+        return view('admin.allBill', ['data' => $data, 'start_date' => $start_date, 'end_date' => $end_date]);
+    }
+
     public function detail()
     {
         $cate = DB::table('tbl_category_product')->get();

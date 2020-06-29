@@ -48,6 +48,7 @@ class Profile extends Controller
         $result = DB::table('users')
                     ->where('id', Auth::id())
                     ->update($data);
+        return Redirect::to('/home');
         // $request->validate([
         //     'old' => ['required', 'string', 'min:8'],
         //     'new' => ['required', 'string', 'min:8'],

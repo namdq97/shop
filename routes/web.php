@@ -123,6 +123,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'adminLogin'], function () {
 
     //bill
     Route::get('/all-bill', 'Bill@all');
+    Route::post('/filter-bill', 'Bill@filter');
     // Route::get('/search-bill', 'Bill@listBySearch');
     Route::get('/del-bill/{id}', 'Bill@delete');
     Route::get('/update-bill', 'Bill@update');

@@ -18,6 +18,14 @@
                             <label for="exampleInputPassword1">Description</label>
                             <textarea style="resize: none;" name="desc" class="form-control"></textarea>
                         </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Address</label>
+                            <textarea style="resize: none;" name="address" class="form-control"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Phone Contact</label>
+                            <textarea style="resize: none;" name="phone" class="form-control"></textarea>
+                        </div>
                         <button type="submit" class="btn btn-info">Submit</button>
                     </form>
                 </div>
