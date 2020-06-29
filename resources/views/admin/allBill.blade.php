@@ -43,6 +43,11 @@
                     <input value="Go" type="submit">
                 </form>
             </div>
+            <div class="col-sm-2">
+                @if(isset($total_price))
+                Total: {{number_format($total_price)}} VND
+                @endif
+            </div>
         </div>
         <div class="table-responsive">
             <table class="table table-striped b-t b-light">
