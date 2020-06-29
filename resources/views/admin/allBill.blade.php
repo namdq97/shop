@@ -11,6 +11,7 @@
         <div class="panel-heading">
             List Bill
         </div>
+        
         <div class="row w3-res-tb">
             <!-- <div class="col-sm-5 m-b-xs">
                 <select class="input-sm form-control w-sm inline v-middle">
@@ -23,7 +24,7 @@
             </div>
             <div class="col-sm-4">
             </div> -->
-            <div class="col-sm-3">
+            <!-- <div class="col-sm-3">
                 <div class="input-group">
                     <input value="{{ isset($_GET['name']) ? $_GET['name'] : '' }}" type="text"
                         class="input-sm form-control" id="inputSearch" placeholder="Search">
@@ -31,7 +32,7 @@
                         <button class="btn btn-sm btn-default" onclick="myFunction()" type="button">Go!</button>
                     </span>
                 </div>
-            </div>
+            </div> -->
             <div class="col-sm-9">
                 <form role="form" method="post" action="{{URL::to('admin/filter-bill')}}">
                     {{csrf_field()}}
@@ -39,7 +40,7 @@
                     <input name="start_date" value="{{isset($start_date) ?  $start_date : '' }}" type="date" id="birthday" name="birthday">
                     <label for="birthday">To:</label>
                     <input name="end_date"  value="{{isset($end_date) ?  $end_date : '' }}" type="date" id="birthday" name="birthday">
-                    <input type="submit">
+                    <input value="Go" type="submit">
                 </form>
             </div>
         </div>
@@ -101,6 +102,13 @@
                                 ui-toggle-class="">
                                 <i class="fa fa-times text-danger text"></i>
                             </a>
+                        </td>
+                        <td>
+                        <a onclick="return confirm('Do you want to export?')"
+                                href="{{URL::to('admin/export-bill/')}}@php echo '/'.$item->id @endphp" class="active"
+                                ui-toggle-class="">
+                            <button type="button" class="btn btn-primary">Export</button>
+                        </a>
                         </td>
                     </tr>
                     @endforeach

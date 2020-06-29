@@ -63,4 +63,5 @@ class BrandProduct extends Controller
             return Redirect::to('/admin/all-brand-product');
         }
     }
+    
 }
