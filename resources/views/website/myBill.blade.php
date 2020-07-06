@@ -27,11 +27,23 @@
       <td>Đã xác nhận </td>
       @elseif ($item->status === 2)
       <td>Đang vận chuyển </td>
+      @elseif ($item->status === 3)
+      <td>Hoàn thành </td>
       @else 
-      <td>Hoàn thành</td>
+      <td>Đã huỷ</td>
+      @endif
+      @if($item->status !== 4)
+      <td><a onclick="return confirm('Bạn có muốn huỷ đơn hàng này?')" href="http://localhost:8000/update-my-bill?id=<?php echo $item->id ?>"><button  type="button" class="btn btn-danger">Huỷ đơn hàng</button></a></td>
       @endif
     </tr>
    @endforeach
   </tbody>
 </table>
 @endsection
+
+<script>
+    function cancel(id) {
+        var x = document.getElementById(`mySelect-${id}`).value;
+        window.location.replace(`http://localhost:8000/admin/update-bill?stt=${x}&id=${id}`);
+    }
+</script>

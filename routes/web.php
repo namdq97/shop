@@ -30,6 +30,7 @@ Route::get('/add/{id}/{qty}', 'Product@addQty');
 Route::get('/minus/{id}/{qty}', 'Product@minusQty');
 Route::post('/checkout', 'Product@checkout');
 Route::get('/my-bill', 'Bill@detail');
+Route::get('/update-my-bill', 'Bill@cancel');
 //auth
 Route::get('/login', function(){
     return view('auth.login');

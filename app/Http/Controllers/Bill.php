@@ -88,4 +88,18 @@ class Bill extends Controller
         return Redirect::to('/admin/all-bill');
     }
 
+    public function cancel(Request $req)
+    {
+        $data = [];
+        $data['status'] = 4;
+
+        $result = DB::table('tbl_bill')
+            ->where('id', $_GET['id'])
+            ->update($data);
+        if ($result) {
+            return Redirect::to('/my-bill');
+        }
+    }
+
+
 }

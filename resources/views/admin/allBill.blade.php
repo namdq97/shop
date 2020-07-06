@@ -76,6 +76,10 @@
                         <td><span class="text-ellipsis">{{ $item->phone }}</span></td>
                         <td><span class="text-ellipsis">{{ $item->count }}</span></td>
                         <td><span class="text-ellipsis">{{ $item->price }}</span></td>
+                        @if($item->status === 4)
+                        <td><span class="text-ellipsis">Đã huỷ</span></td>
+                        @endif
+                        @if($item->status !== 4)
                         <td>
                             <select id="mySelect-{{$item->id}}" onchange="updateStt(<?php echo $item->id ?>)"
                                 name="status" class="form-control input -sm m-bot15">
@@ -101,6 +105,7 @@
                                 @endif
                             </select>
                         </td>
+                        @endif
                         <td>
                             <a onclick="return confirm('Do you want to delete?')"
                                 href="{{URL::to('admin/del-bill/')}}@php echo '/'.$item->id @endphp" class="active"
@@ -145,9 +150,6 @@
 <script>
     function updateStt(id) {
         var x = document.getElementById(`mySelect-${id}`).value;
-        console.log(id);
-        console.log(x);
-
         window.location.replace(`http://localhost:8000/admin/update-bill?stt=${x}&id=${id}`);
     }
 </script>
