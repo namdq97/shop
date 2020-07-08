@@ -55,9 +55,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="top-nav clearfix">
                 <!--search & user info start-->
                 <ul class="nav pull-right top-menu">
-                    <li>
-                        <input type="text" class="form-control search" placeholder=" Search">
-                    </li>
                     <!-- user login dropdown start-->
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
@@ -152,8 +149,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <li><a href="{{URL::to('admin/add-user')}}">Add user</a></li>
                             </ul>
                         </li>
-                        @endif 
-                        @if(Session::get('level') === 1)       
+                        @endif                      
                         <li class="sub-menu">
                             <a href="javascript:;">
                             <i class="fa fa-user" aria-hidden="true"></i>
@@ -163,7 +159,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <li><a href="{{URL::to('admin/all-customer')}}">All </a></li>
                             </ul>
                         </li>
-                        @endif 
                         <li class="sub-menu">
                             <a href="javascript:;">
                             <i class="fa fa-newspaper-o" aria-hidden="true"></i>

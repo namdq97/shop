@@ -103,7 +103,6 @@
                             <li><a href="{{URL::to('')}}" class="active">Trang chủ</a></li>
                             <li><a href="{{URL::to('tin-tuc')}}">Tin tức</a></li>
                             <li><a href="{{URL::to('show-cart')}}"> Giỏ hàng</a></li>
-                            <li><a href="contact-us.html">Liên hệ</a></li>
                         </ul>
                     </div>
                 </div>
