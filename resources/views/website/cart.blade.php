@@ -1,8 +1,6 @@
 @extends('layouts.header')
 @section('content')
 @php
-echo "<pre>";
-var_dump(Cart::content());
 @endphp
 <section id="cart_items">
     <div class="container">
@@ -41,10 +39,10 @@ var_dump(Cart::content());
                         <td class="cart_quantity">
                             <div class="cart_quantity_button">
                                 <a class="cart_quantity_up" href="{{URL::to('/add/'.$item->rowId.'/'.$item->qty)}}"> + </a>
-                                <input id="mySelect-{{$item->rowId}}" type="text" style="width: 40px; float: left" id="lname" name="lname" value="{{$item->qty}}">
+                                <input id="mySelect-{{$item->id}}" type="text" style="width: 40px; float: left" id="lname" name="lname" value="{{$item->qty}}">
                                 <a class="cart_quantity_down" href="{{URL::to('/minus/'.$item->rowId.'/'.$item->qty)}}"> - </a>
                             </div>
-                            <button onclick="insertQty({{$item->rowId}})" type="button" class="btn btn-primary" style="height: 28px; margin: 0">Xác nhận</button>
+                            <button onclick="insertQty({{$item->id}})" type="button" class="btn btn-primary" style="height: 28px; margin: 0">Xác nhận</button>
                         </td>
                         <td class="cart_total">
                             <p class="cart_total_price">{{number_format($item->price * $item->qty)}} VNĐ</p>
@@ -105,8 +103,7 @@ var_dump(Cart::content());
 
 <script>
     function insertQty(id) {
-        // var x = document.getElementById(`mySelect-${id}`).value;
-        console.log(id);
-        // window.location.replace(`http://localhost:8000/admin/update-bill?stt=${x}&id=${id}`);
+        var value = document.getElementById(`mySelect-${id}`).value;
+        window.location.replace(`http://localhost:8000/insertNumber/${id}/${value}`);
     }
 </script>

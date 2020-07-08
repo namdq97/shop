@@ -191,7 +191,14 @@ class Product extends Controller
 
     public function numberQty(Request $req, $id, $qty)
     {
-        Cart::update($id, $qty);
+        $list = Cart::content();
+        $rowId = '';
+        foreach ($list as $item) {
+            if($item->id == $id){
+                $rowId = $item->rowId;
+            }
+        }
+        Cart::update($rowId, $qty);
         return Redirect::to('/show-cart');
     }
 
