@@ -18,8 +18,8 @@ if(isset($_GET['category'])){
 
 <div class="features_items">
     <div style="display: flex; margin-bottom: 20px; justify-content: flex-end;">
-        <input value="{{ isset($_GET['search']) ? $_GET['search'] : '' }}" style="height: 35px; background-color: whitesmoke; border: none; width: 50%; padding-left: 10px;" id="inputSearch" type="text" placeholder="Search" />
-        <button type="submit" onclick="myFunction()" class="btn btn-warning">Search</button>
+        <input value="{{ isset($_GET['search']) ? $_GET['search'] : '' }}" style="height: 35px; background-color: whitesmoke; border: none; width: 50%; padding-left: 10px;" id="inputSearch" type="text" placeholder="Sản phẩm" />
+        <button type="submit" onclick="myFunction()" class="btn btn-warning">Tìm kiếm</button>
     </div>
     <!--features_items-->
     <h2 class="title text-center">Dach sách sản phẩm</h2>
@@ -38,17 +38,8 @@ if(isset($_GET['category'])){
                 <div class="productinfo text-center">
                     <img src="/backend/images/{{($item->image)}}" alt="" />
                     <h2>{{number_format($item->price)}} VND</h2>
-                    <p>{{$item->product_name}}</p>
-                    <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                </div>
-                <div class="product-overlay">
-                    <div class="overlay-content">
-                        <h2>{{number_format($item->price)}} VND</h2>
-                        <p> <a style="color: white"
-                                href="{{URL::to('/chi-tiet-san-pham/'.$item->id)}}">{{$item->product_name}}</a></p>
-                        <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to
-                            cart</a>
-                    </div>
+                    <p> <a style="color: black" href="{{URL::to('/chi-tiet-san-pham/'.$item->id)}}">{{$item->product_name}}</a></p>
+                    <a href="{{ Auth::check() ? URL::to('/cart/'.$item->id) : URL::to('login') }}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
                 </div>
             </div>
         </div>

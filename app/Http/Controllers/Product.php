@@ -189,6 +189,13 @@ class Product extends Controller
         return Redirect::to('/show-cart');
     }
 
+    public function numberQty(Request $req, $id, $qty)
+    {
+        Cart::update($id, $qty);
+        return Redirect::to('/show-cart');
+    }
+
+
     public function minusQty(Request $req, $id, $qty)
     {
         Cart::update($id, $qty - 1);

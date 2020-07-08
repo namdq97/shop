@@ -28,6 +28,7 @@ Route::get('/show-cart', 'Product@goToCart');
 Route::get('/delete/{id}', 'Product@deleteItem');
 Route::get('/add/{id}/{qty}', 'Product@addQty');
 Route::get('/minus/{id}/{qty}', 'Product@minusQty');
+Route::get('/insertNumber/{id}/{qty}', 'Product@numberQty');
 Route::post('/checkout', 'Product@checkout');
 Route::get('/my-bill', 'Bill@detail');
 Route::get('/update-my-bill', 'Bill@cancel');

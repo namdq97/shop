@@ -46,6 +46,9 @@
                         <div class="form-group">
                             <label for="exampleInputPassword1">Content</label>
                             <textarea style="resize: none;" name="content" class="form-control">{{$data->content}}</textarea>
+                            <script>
+                                CKEDITOR.replace('content');
+                            </script>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1">Price (VND)</label>
