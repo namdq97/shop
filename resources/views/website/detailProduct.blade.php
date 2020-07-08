@@ -17,7 +17,7 @@
                     <a href="{{URL::to('/cart/'.$data->id)}}">
                     <button type="button" class="btn btn-fefault cart">
                         <i class="fa fa-shopping-cart"></i>
-                        Add to cart
+                        Thêm vào giỏ hàng
                     </button></a>
                 </span>
                 <p><b class="{{ $data->status === 0 ? 'a' : 'b' }}">Tình trạng:</b> {{$data->status === 0 ? 'Hết hàng' : 'Còn hàng'}}</p>
@@ -39,7 +39,7 @@
         </div>
         <div class="tab-content">
             <div class="tab-pane fade active in" id="details">
-                {{ $data->content }}
+                {!! $data->content !!}
             </div>
 
             <div class="tab-pane fade in" id="reviews">
@@ -60,7 +60,7 @@
                     {{csrf_field()}}
                         <textarea name="content"></textarea>
                         <button type="submit" class="btn btn-default pull-right">
-                            Submit
+                            Đăng
                         </button>
                     </form>
                     @endif
