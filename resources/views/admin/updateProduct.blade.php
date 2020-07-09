@@ -55,6 +55,11 @@
                             <input  value="{{$data->price}}" type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter price" name="price">
                         </div>
                         <div class="form-group">
+                            <label for="exampleInputEmail1">Số lượng trong kho</label>
+                            <input value="{{$data->amount}}" type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter price"
+                                name="amount">
+                        </div>
+                        <div class="form-group">
                             <label for="exampleInputEmail1">Số lượng (kg)</label>
                             <input value="{{$data->size}}" type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter size" name="size">
                         </div>

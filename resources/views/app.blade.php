@@ -256,10 +256,9 @@
 						<div class="single-widget">
 							<h2>Liên hệ</h2>
 							<form action="#" class="searchform">
-								<input type="text" placeholder="Your email address" />
+								<input type="text" placeholder="Email" />
 								<button type="submit" class="btn btn-default"><i
 										class="fa fa-arrow-circle-o-right"></i></button>
-								<p>Get the most recent updates from <br />our site and be updated your self...</p>
 							</form>
 						</div>
 					</div>

@@ -50,6 +50,11 @@
                                 name="price">
                         </div>
                         <div class="form-group">
+                            <label for="exampleInputEmail1">Số lượng trong kho</label>
+                            <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter price"
+                                name="amount">
+                        </div>
+                        <div class="form-group">
                             <label for="exampleInputEmail1">Số lượng (kg)</label>
                             <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter size"
                                 name="size">

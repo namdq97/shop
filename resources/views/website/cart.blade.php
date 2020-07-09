@@ -10,6 +10,13 @@
                 <li class="active">Shopping Cart</li>
             </ol>
         </div>
+        <?php 
+            $checkout_fall = Session::get('checkout_fall');
+            if($checkout_fall){
+                echo '<div class="alert alert-warning" role="alert">'.$checkout_fall.'</div>';
+                $checkout_fall = Session::put('checkout_fall', null);
+            }
+        ?>
         <div class="table-responsive cart_info">
             <table class="table table-condensed">
                 <thead>
@@ -39,7 +46,7 @@
                         <td class="cart_quantity">
                             <div class="cart_quantity_button">
                                 <a class="cart_quantity_up" href="{{URL::to('/add/'.$item->rowId.'/'.$item->qty)}}"> + </a>
-                                <input id="mySelect-{{$item->id}}" type="text" style="width: 40px; float: left" id="lname" name="lname" value="{{$item->qty}}">
+                                <input id="mySelect-{{$item->id}}" type="text" style="width: 60px; float: left" id="lname" name="lname" value="{{$item->qty}}">
                                 <a class="cart_quantity_down" href="{{URL::to('/minus/'.$item->rowId.'/'.$item->qty)}}"> - </a>
                             </div>
                             <button onclick="insertQty({{$item->id}})" type="button" class="btn btn-primary" style="height: 28px; margin: 0">Xác nhận</button>

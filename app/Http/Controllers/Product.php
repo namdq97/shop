@@ -57,6 +57,7 @@ class Product extends Controller
         $desc = $req->desc;
         $price = $req->price;
         $size = $req->size;
+        $amount = $req->amount;
         $status = $req->status;
         $image = $req->file('image');
 
@@ -75,6 +76,7 @@ class Product extends Controller
                 'price' => $price,
                 'size' => $size,
                 'status' => $status,
+                'amount' => $amount,
                 'image' => isset($image) ? $imageName : null,
             ]
         );
@@ -116,6 +118,7 @@ class Product extends Controller
         $price = $req->price;
         $size = $req->size;
         $status = $req->status;
+        $amount = $req->amount;
         $image = $req->file('image');
 
         $data = [
@@ -126,6 +129,7 @@ class Product extends Controller
             'content' => $content,
             'price' => $price,
             'size' => $size,
+            'amount' => $amount,
             'status' => $status,
         ];
 
@@ -194,14 +198,13 @@ class Product extends Controller
         $list = Cart::content();
         $rowId = '';
         foreach ($list as $item) {
-            if($item->id == $id){
+            if ($item->id == $id) {
                 $rowId = $item->rowId;
             }
         }
         Cart::update($rowId, $qty);
         return Redirect::to('/show-cart');
     }
-
 
     public function minusQty(Request $req, $id, $qty)
     {
@@ -211,20 +214,39 @@ class Product extends Controller
 
     public function checkout(Request $req)
     {
+        $valid = true;
         foreach (Cart::content() as $key => $value) {
-            DB::table('tbl_bill')->insert(
-                ['name' => $req->name, 'phone' => $req->phone, 'address' => $req->address, 'note' => $req->note, 'count' => $value->qty, 'user_id' => Auth::id(), 'product_id' => $value->id, 'price' => Cart::subtotal()]
-            );
+            $data = DB::table('tbl_product')->where('id', $value->id)->first();
+            if ($data->amount < $value->qty) {
+                Session::put('checkout_fall', 'Số lượng ' . $data->product_name . ' trong kho không đủ! Vui lòng đặt lại');
+                return Redirect::to('/show-cart');
+                $valid = false;
+                break;
+            }
         }
-        Session::put('success', 'Đặt hàng thành công. Xin cảm ơn!');
-        $to = 'namdq97@gmail.com';
-        $subject = 'Test email'; 
-        $message = "Hello World!\n\nThis is my first mail."; 
-        $headers = "From: *****@gmail.com\r\nReply-To: *****@gmail.com";
-        $mail_sent = @mail( $to, $subject, $message, $headers );
-        echo $mail_sent ? "Mail sent" : "Mail failed";
-        Cart::destroy();
-        return Redirect::to('/home');
+
+        if ($valid === true) {
+            foreach (Cart::content() as $key => $value) {
+                $data = DB::table('tbl_product')->where('id', $value->id)->first();
+                $amount = $data->amount;
+                DB::table('tbl_bill')->insert(
+                    ['name' => $req->name, 'phone' => $req->phone, 'address' => $req->address, 'note' => $req->note, 'count' => $value->qty, 'user_id' => Auth::id(), 'product_id' => $value->id, 'price' => Cart::subtotal()]
+                );
+                $item = [
+                    'amount' => $amount - $value->qty,
+                ];
+                 DB::table('tbl_product')->where('id', $data->id)->update($item);
+            }
+            Session::put('success', 'Đặt hàng thành công. Xin cảm ơn!');
+            $to = 'namdq97@gmail.com';
+            $subject = 'Test email';
+            $message = "Hello World!\n\nThis is my first mail.";
+            $headers = "From: *****@gmail.com\r\nReply-To: *****@gmail.com";
+            $mail_sent = @mail($to, $subject, $message, $headers);
+            echo $mail_sent ? "Mail sent" : "Mail failed";
+            Cart::destroy();
+            return Redirect::to('/home');
+        }
     }
 
 }
