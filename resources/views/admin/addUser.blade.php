@@ -4,14 +4,14 @@
     <div class="col-lg-12">
         <section class="panel">
             <header class="panel-heading">
-               Add User
+               Thêm user
             </header>
             <div class="panel-body">
                 <div class="position-center">
                     <form role="form" method="post" action="{{URL::to('admin/submit-user')}}">
                         {{csrf_field()}}
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Name</label>
+                            <label for="exampleInputEmail1">Tên</label>
                             <input required type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter name" name="name">
                         </div>
                         <div class="form-group">
@@ -19,7 +19,7 @@
                             <input required type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" name="email">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Phone</label>
+                            <label for="exampleInputPassword1">SDT</label>
                             <input required type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter email" name="phone">
                         </div>
                         <div class="form-group">
@@ -27,13 +27,13 @@
                             <input required type="text" class="form-control" id="exampleInputEmail1" placeholder="Enter email" name="password">
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Level</label>
+                            <label for="exampleInputPassword1">Cấp</label>
                             <select name="level" class="form-control input -sm m-bot15">
                                     <option value=0 >Admin</option>
                                     <option value=1 >Super Admin</option>
                             </select>
                         </div>
-                        <button type="submit" class="btn btn-info">Submit</button>
+                        <button type="submit" class="btn btn-info">Tạo</button>
                         <?php
                             $msg = Session::get('error');
                             if($msg){

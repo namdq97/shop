@@ -9,7 +9,7 @@ function myFunction(){
 <div class="table-agile-info">
     <div class="panel panel-default">
         <div class="panel-heading">
-           List Admin
+          Danh sách quản trị viên
         </div>
         <div class="row w3-res-tb">
             <!-- <div class="col-sm-5 m-b-xs">
@@ -36,9 +36,9 @@ function myFunction(){
             <table class="table table-striped b-t b-light">
                 <thead>
                     <tr>
-                        <th>Name</th>
+                        <th>Tên</th>
                         <th>Email</th>
-                        <th>Level</th>
+                        <th>Cấp</th>
                         <th></th>
                         <th></th>
                     </tr>

@@ -35,7 +35,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
     <div class="log-w3">
         <div class="w3layouts-main">
-            <h2>Sign In Now</h2>
+            <h2>Quản trị</h2>
             <?php 
                 $msg = Session::get('msg');
                 if($msg){
@@ -46,9 +46,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <form action="{{URL::to('/admin-dashboard')}}" method="post">
             {{csrf_field() }}
                 <input type="email" class="ggg" name="email" placeholder="E-MAIL" required="">
-                <input type="password" class="ggg" name="password" placeholder="PASSWORD" required="">
+                <input type="password" class="ggg" name="password" placeholder="Mật khẩu" required="">
                 <div class="clearfix"></div>
-                <input type="submit" value="Sign In" name="login">
+                <input type="submit" value="Đăng nhập" name="login">
             </form>
         </div>
     </div>

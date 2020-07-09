@@ -102,82 +102,82 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <li class="sub-menu">
                             <a href="javascript:;">
                                 <i class="fa fa-book"></i>
-                                <span>Categories Product</span>
+                                <span>Danh mục sản phẩm</span>
                             </a>
                             <ul class="sub">
-                                <li><a href="{{URL::to('admin/all-category-product')}}">All </a></li>
-                                <li><a href="{{URL::to('admin/add-category-product')}}">Add category</a></li>
+                                <li><a href="{{URL::to('admin/all-category-product')}}">Danh sách </a></li>
+                                <li><a href="{{URL::to('admin/add-category-product')}}">Thêm</a></li>
                             </ul>
                         </li>
 
                         <li class="sub-menu">
                             <a href="javascript:;">
                             <i class="fa fa-font-awesome" aria-hidden="true"></i>
-                                <span>Brand Product</span>
+                                <span>Thương hiệu sản phẩm</span>
                             </a>
                             <ul class="sub">
-                                <li><a href="{{URL::to('admin/all-brand-product')}}">All </a></li>
-                                <li><a href="{{URL::to('admin/add-brand-product')}}">Add brand</a></li>
+                                <li><a href="{{URL::to('admin/all-brand-product')}}">Danh sách </a></li>
+                                <li><a href="{{URL::to('admin/add-brand-product')}}">Thêm</a></li>
                             </ul>
                         </li>
 
                         <li class="sub-menu">
                             <a href="javascript:;">
                             <i class="fa fa-cutlery" aria-hidden="true"></i>
-                                <span> Product</span>
+                                <span> Sản phẩm</span>
                             </a>
                             <ul class="sub">
-                                <li><a href="{{URL::to('admin/all-product')}}">All </a></li>
-                                <li><a href="{{URL::to('admin/add-product')}}">Add product</a></li>
+                                <li><a href="{{URL::to('admin/all-product')}}">Danh sách </a></li>
+                                <li><a href="{{URL::to('admin/add-product')}}">Thêm</a></li>
                             </ul>
                         </li>
                         <li class="sub-menu">
                             <a href="javascript:;">
                             <i class="fa fa-cutlery" aria-hidden="true"></i>
-                                <span> Bill</span>
+                                <span> Đơn hàng</span>
                             </a>
                             <ul class="sub">
-                                <li><a href="{{URL::to('admin/all-bill')}}">All </a></li>
+                                <li><a href="{{URL::to('admin/all-bill')}}">Danh sách </a></li>
                             </ul>
                         </li>
                          @if(Session::get('level') === 1)       
                         <li class="sub-menu">
                             <a href="javascript:;">
                             <i class="fa fa-user" aria-hidden="true"></i>
-                                <span> User</span>
+                                <span> Quản trị viên</span>
                             </a>
                             <ul class="sub">
-                                <li><a href="{{URL::to('admin/all-user')}}">All </a></li>
-                                <li><a href="{{URL::to('admin/add-user')}}">Add user</a></li>
+                                <li><a href="{{URL::to('admin/all-user')}}">Danh sách </a></li>
+                                <li><a href="{{URL::to('admin/add-user')}}">Thêm</a></li>
                             </ul>
                         </li>
                         @endif                      
                         <li class="sub-menu">
                             <a href="javascript:;">
                             <i class="fa fa-user" aria-hidden="true"></i>
-                                <span> Customer</span>
+                                <span> Khách hàng</span>
                             </a>
                             <ul class="sub">
-                                <li><a href="{{URL::to('admin/all-customer')}}">All </a></li>
+                                <li><a href="{{URL::to('admin/all-customer')}}">Danh sách </a></li>
                             </ul>
                         </li>
                         <li class="sub-menu">
                             <a href="javascript:;">
                             <i class="fa fa-newspaper-o" aria-hidden="true"></i>
-                                <span> News</span>
+                                <span> Tin Tức</span>
                             </a>
                             <ul class="sub">
-                                <li><a href="{{URL::to('admin/all-news')}}">All </a></li>
-                                <li><a href="{{URL::to('admin/add-news')}}">Add news</a></li>
+                                <li><a href="{{URL::to('admin/all-news')}}">Danh sách </a></li>
+                                <li><a href="{{URL::to('admin/add-news')}}">Thêm</a></li>
                             </ul>
                         </li>       
                         <li class="sub-menu">
                             <a href="javascript:;">
                             <i class="fa fa-newspaper-o" aria-hidden="true"></i>
-                                <span> Reviews</span>
+                                <span> Đánh giá</span>
                             </a>
                             <ul class="sub">
-                                <li><a href="{{URL::to('admin/all-review')}}">All </a></li>
+                                <li><a href="{{URL::to('admin/all-review')}}">Danh sách </a></li>
                             </ul>
                         </li>       
                     </ul>

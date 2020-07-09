@@ -9,7 +9,7 @@ function myFunction(){
 <div class="table-agile-info">
     <div class="panel panel-default">
         <div class="panel-heading">
-           List Reviews
+          Danh sách đánh giá
         </div>
         <div class="row w3-res-tb">
             <!-- <div class="col-sm-5 m-b-xs">
@@ -37,9 +37,9 @@ function myFunction(){
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Content</th>
-                        <th>User</th>
-                        <th>Product</th>
+                        <th>Nội dung</th>
+                        <th>Khách hàng</th>
+                        <th>Sản phẩm</th>
                         <th></th>
                     </tr>
                 </thead>
