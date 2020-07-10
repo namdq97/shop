@@ -46,7 +46,7 @@
                         <td class="cart_quantity">
                             <div class="cart_quantity_button">
                                 <a class="cart_quantity_up" href="{{URL::to('/add/'.$item->rowId.'/'.$item->qty)}}"> + </a>
-                                <input id="mySelect-{{$item->id}}" type="text" style="width: 60px; float: left" id="lname" name="lname" value="{{$item->qty}}">
+                                <input min="1" type="number" id="mySelect-{{$item->id}}" style="width: 60px; float: left" id="lname" name="lname" value="{{$item->qty}}">
                                 <a class="cart_quantity_down" href="{{URL::to('/minus/'.$item->rowId.'/'.$item->qty)}}"> - </a>
                             </div>
                             <button onclick="insertQty({{$item->id}})" type="button" class="btn btn-primary" style="height: 28px; margin: 0">Xác nhận</button>
